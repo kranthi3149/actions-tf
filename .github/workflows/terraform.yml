@@ -4,11 +4,10 @@ on:
     branches:                                 
     - main                            
   pull_request:
-                                                       
 env:                                   
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
+ 
 jobs:                               
   terraform:                                 
     name: 'Terraform'                                 
@@ -21,20 +20,17 @@ jobs:
         - name: 'Terraform init' 
           id: init                                   
           run: |
-            terraform init -reconfigure                          
-
+            terraform init                           
+ 
         - name: Set up Terraform
           uses: hashicorp/setup-terraform@v1
-          
-        - name: 'intialization'
-          run: terraform init
-        
+        - name: Initialize Terraform
+          run: terraform init -reconfigure
         - name: 'Terraform plan'                                   
           id: plan                                   
           run: |
             terraform plan                 
-                                        
         - name: 'Terraform apply' 
-          id: apply            
+          id: apply           
           run: | 
             terraform apply -auto-approve
