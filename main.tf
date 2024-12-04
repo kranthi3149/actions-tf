@@ -1,9 +1,9 @@
-resource "aws_s3_bucket" "bucket5" {
-	bucket = "Kranthi-0"
+resource "aws_s3_bucket" "bucket1" {
+	bucket = "neeha-first-bucket"
 }
 
-resource "aws_s3_bucket" "bucket6" {
-        bucket = "Kranthi-1"
+resource "aws_s3_bucket" "bucket2" {
+    
 }
 
 provider "aws" {
